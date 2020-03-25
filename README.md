@@ -142,7 +142,7 @@ Octus SDK uses advanced deep learning technologies for accurate and fast ID scan
   ```Javascript
    Cordova.exec(successCallBack, failureCallBack, "OCTUS", "invokeOctusSDK", [scanSDKParams]);
   ```
-  - Invoke the IOS SDK
+- Invoke the IOS SDK
 
     ```Javascript
         FORUS.invokeOctusSDK(inputParamsDict,successCallback,errorCallback);
