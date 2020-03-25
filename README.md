@@ -182,23 +182,23 @@ Step 05:
 - Passing the input parameters from index.js to native code
     ```Javascript
        var inputParamsDict = {};
-       inputParamsDict['LICENCE_KEY'] = 'your licence key';
-       inputParamsDict['documentCountry'] = 'IN';
-       inputParamsDict['documentType'] = 'PASSPORT'; //'PAN CARD', 'AADHAAR CARD', 'PASSPORT', 'CHECK LEAF', 'DRIVING LICENCE', 'GST NUMBER', 'MASKED AADHAAR', 'SCAN IMAGE H', 'SCAN IMAGE V', 'NATIONAL ID CARD', 'VISA','VOTER ID CARD'.
-       inputParamsDict['documentSubType'] = 'MRTD'; //'OCR', 'MRTD', 'BARCODE', 'CROP'
-       inputParamsDict['documentSide'] = '1'; // '1' or '2'
+       inputParamsDict['ios_licence_key'] = 'your licence key';
+       inputParamsDict['ios_documentCountry'] = 'IN';
+       inputParamsDict['ios_documentType'] = 'PASSPORT'; //'PAN CARD', 'AADHAAR CARD', 'PASSPORT', 'CHECK LEAF', 'DRIVING LICENCE', 'GST NUMBER', 'MASKED AADHAAR', 'SCAN IMAGE H', 'SCAN IMAGE V', 'NATIONAL ID CARD', 'VISA','VOTER ID CARD'.
+       inputParamsDict['ios_documentSubType'] = 'MRTD'; //'OCR', 'MRTD', 'BARCODE', 'CROP'
+       inputParamsDict['ios_documentSide'] = '1'; // '1' or '2'
     ```
     Octus Parameters(DESCRIPTION) : 
-     1:     `inputParamsDict['LICENCE_KEY'] = 'your licence key';`
+     1:     `inputParamsDict['ios_licence_key'] = 'your licence key';`
      
             Accepts the Octus licence key as a String
             
-     2:     `inputParamsDict['documentCountry'] = 'IN';`
+     2:     `inputParamsDict['ios_documentCountry'] = 'IN';`
               
             Sets the country associated with the Document.
             For the complete list of supported countries refer ISO_3166-1_alpha-2 format code
 
-     3:     `inputParamsDict['documentType'] = 'PASSPORT';`
+     3:     `inputParamsDict['ios_documentType'] = 'PASSPORT';`
 
             Sets the Document which has to be scanned. Possible values are:
             Value           
@@ -215,7 +215,7 @@ Step 05:
             'SCAN IMAGE H'
             'SCAN IMAGE V'
         
-     4:      `inputParamsDict['documentSubType'] = 'MRTD';`
+     4:      `inputParamsDict['ios_documentSubType'] = 'MRTD';`
 
              Sets the Document Sub Type. Majority of the documents support only OCR as a sub type.
 
@@ -230,7 +230,7 @@ Step 05:
                  CROP       Scans the document in Crop mode
                  Note: OCR is only supported from iOS version 13 and above. 
 
-    5:      `inputParamsDict['documentSide'] = '1';`
+    5:      `inputParamsDict['ios_documentSide'] = '1';`
     
             Set the document side '1' or '2' according to documentType AND ScanMode.
 
