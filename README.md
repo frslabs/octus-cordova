@@ -24,7 +24,7 @@ Octus SDK uses advanced deep learning technologies for accurate and fast ID scan
         use_frameworks!
         target 'octusApp' do
             project 'cordovaoctus.xcodeproj'
-            pod 'Octus'
+            pod 'Octus', '~> 1.0.0'
             pod 'TesseractOCRiOS'
         end`
     
