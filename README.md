@@ -39,7 +39,7 @@ password <YOUR_PASSOWRD>
         use_frameworks!
         target 'octusApp' do
             project 'cordovaoctus.xcodeproj'
-            pod 'Octus', '~> 1.0.0'
+            pod 'Octus', '~> 1.0.0' //Add the version if it is missed in podfile
             pod 'TesseractOCRiOS'
         end`
     
