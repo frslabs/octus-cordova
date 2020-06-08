@@ -12,6 +12,21 @@ Octus SDK uses advanced deep learning technologies for accurate and fast ID scan
 - Add the swift support to cordova app :  `cordova plugin add cordova-plugin-add-swift-support --save`
 - Add camera permissions to your app to capture picture
     `cordova plugin add cordova-plugin-ios-camera-permissions --variable CAMERA_USAGE_DESCRIPTION="To capture document"`
+    
+###### Save/Edit Netrc settings to install custom pod
+
+You will need a valid netrc credentials to install forus from maven, which can be obtained by contacting `support@frslabs.com`. 
+
+1. Create or edit .netrc file under current user's home directory
+2. Write the below lines into that file, replace <YOUR_USERNAME> and <YOUR_PASSWORD> with your credentials which is shared through email and save the file.
+```ruby
+machine octus-ios.repo.frslabs.space
+login <YOUR_USERNAME>
+password <YOUR_PASSOWRD>
+```
+3. In terminal enter below command to install the pod.
+    
+    
 - After adding the plugin you need to install the sdk through pod 
     1: first check with this command to see if all the details are added correctly
                 `open podfile` 
