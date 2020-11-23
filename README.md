@@ -52,19 +52,19 @@ password <YOUR_PASSOWRD>
 
   ```Javascript
     var scanSDKParams = {
-                 "licence_key" : "USE_YOUR_LICENCE_KEY",
-                 "language" : 1,//ENGLISH -1
-                 "show_instruction_flag" : true, // YES or NO
-                 "orientation_flat" : false, // YES or NO
-                 "data_points" : false, // YES or NO
-                 "set_alert_type" : 1, // YES or NO
-                 "set_scan_mode" : 1, // YES or NO
-                 "id_country" : "INDIA",
-                 "aadhar_masked" : true,// If aadhar masked required true otherwise false
-                 "id_type" : "ADR", //Document type ADR,PAN,VID,NID,PPT,DRV etc
-                 "id_sub_type" : 1,//OCR-1,QR_CODE-2,MRZ-3,PDF417-4.
-                 "document_sides" : "FRONT_BACK"// Document sides for PAN-FRONT ,ADR-FRONT_BACK  If two sides FRONT_BACK one side FRONT
-                }
+     "licence_key" : "USE_YOUR_LICENCE_KEY",
+     "language" : 1,//ENGLISH -1
+     "show_instruction_flag" : true, // YES or NO
+     "orientation_flat" : false, // YES or NO
+     "data_points" : false, // YES or NO
+     "set_alert_type" : 1, // YES or NO
+     "set_scan_mode" : 1, // YES or NO
+     "id_country" : "INDIA",
+     "aadhar_masked" : true,// If aadhar masked required true otherwise false
+     "id_type" : "ADR", //Document type ADR,PAN,VID,NID,PPT,DRV etc
+     "id_sub_type" : 1,//OCR-1,QR_CODE-2,MRZ-3,PDF417-4.
+     "document_sides" : "FRONT_BACK"// Document sides for PAN-FRONT ,ADR-FRONT_BACK  If two sides FRONT_BACK one side FRONT
+    }
                 
  #### IOS Usage
  
