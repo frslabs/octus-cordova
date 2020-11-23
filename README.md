@@ -15,7 +15,7 @@ Octus SDK uses advanced deep learning technologies for accurate and fast ID scan
     
 ###### Save/Edit Netrc settings to install custom pod
 
-You will need a valid netrc credentials to install forus from maven, which can be obtained by contacting `support@frslabs.com`. 
+You will need a valid netrc credentials to install octus from maven, which can be obtained by contacting `support@frslabs.com`. 
 
 1. Create or edit .netrc file under current user's home directory
 2. Write the below lines into that file, replace <YOUR_USERNAME> and <YOUR_PASSWORD> with your credentials which is shared through email and save the file.
