@@ -37,8 +37,7 @@ password <YOUR_PASSOWRD>
         source 'https://github.com/CocoaPods/Specs.git'
         platform :ios, '13.0'  //If changes are needed to platform ios version, you can change it here
         use_frameworks!
-        target 'octusApp' do
-            project 'cordovaoctus.xcodeproj'
+        target '<Your Target Name>' do
             pod 'Octus', '~> 1.0.0' //Add the version if it is missed in podfile
             pod 'TesseractOCRiOS'
         end`
