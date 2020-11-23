@@ -78,63 +78,64 @@ password <YOUR_PASSOWRD>
        inputParamsDict['documentSide'] = '1'; // '1' or '2'
     ```
     Octus Parameters(DESCRIPTION) : 
+     
      1:     `inputParamsDict['LICENCE_KEY'] = 'your licence key';`
      
-            Accepts the Octus licence key as a String
+       Accepts the Octus licence key as a String
             
      2:     `inputParamsDict['documentCountry'] = 'IN';`
               
-            Sets the country associated with the Document.
-            For the complete list of supported countries refer ISO_3166-1_alpha-2 format code
+        Sets the country associated with the Document.
+        For the complete list of supported countries refer ISO_3166-1_alpha-2 format code
 
      3:     `inputParamsDict['documentType'] = 'PASSPORT';`
 
-            Sets the Document which has to be scanned. Possible values are:
-            Value           
-            'PAN CARD'
-            'AADHAAR CARD'
-            'VOTER ID CARD'
-            'NATIONAL ID CARD'
-            'PASSPORT'
-            'VISA'
-            'DRIVING LICENCE'
-            'CHECK LEAF'
-            'GST NUMBER'
-            'MASKED AADHAAR'
-            'SCAN IMAGE H'
-            'SCAN IMAGE V'
+        Sets the Document which has to be scanned. Possible values are:
+        Value           
+        'PAN CARD'
+        'AADHAAR CARD'
+        'VOTER ID CARD'
+        'NATIONAL ID CARD'
+        'PASSPORT'
+        'VISA'
+        'DRIVING LICENCE'
+        'CHECK LEAF'
+        'GST NUMBER'
+        'MASKED AADHAAR'
+        'SCAN IMAGE H'
+        'SCAN IMAGE V'
         
      4:      `inputParamsDict['documentSubType'] = 'MRTD';`
 
-             Sets the Document Sub Type. Majority of the documents support only OCR as a sub type.
+         Sets the Document Sub Type. Majority of the documents support only OCR as a sub type.
 
-             Documents where both OCR and BARCODE apply are : ADR
-             Documents where only MRTD apply are : PPT
-                                                   VSA
-             Possible values for Sub Type are:
-                 Value    
-                 OCR        Scans the document in OCR mode
-                 BARCODE    Scans the document in QR mode
-                 MRTD       Scans the document in MRZ mode
-                 CROP       Scans the document in Crop mode
-                 Note: OCR is only supported from iOS version 13 and above. 
+         Documents where both OCR and BARCODE apply are : ADR
+         Documents where only MRTD apply are : PPT
+                                               VSA
+         Possible values for Sub Type are:
+             Value    
+             OCR        Scans the document in OCR mode
+             BARCODE    Scans the document in QR mode
+             MRTD       Scans the document in MRZ mode
+             CROP       Scans the document in Crop mode
+             Note: OCR is only supported from iOS version 13 and above. 
 
     5:      `inputParamsDict['documentSide'] = '1';`
     
-            Set the document side '1' or '2' according to documentType AND ScanMode.
+        Set the document side '1' or '2' according to documentType AND ScanMode.
 
-            Value             ScanMode        DocumentSide
-            'PAN CARD'          OCR                1
-            'AADHAAR CARD'      OCR, BARCODE      2, 1
-            'VOTER ID CARD'     OCR                2
-            'PASSPORT'          MRTD              1, 2
-            'DRIVING LICENCE'   OCR                2
-            'CHECK LEAF'        OCR                1
-            'GST NUMBER'        OCR                1
-            'MASKED AADHAAR'    CROP               2
-            'SCAN IMAGE H'      CROP               2
-            'SCAN IMAGE V'      CROP               2
-             Note: In case of MRTD, DocumentSide = 2 is only applicable for Indian passports with address on the back page.
+        Value             ScanMode        DocumentSide
+        'PAN CARD'          OCR                1
+        'AADHAAR CARD'      OCR, BARCODE      2, 1
+        'VOTER ID CARD'     OCR                2
+        'PASSPORT'          MRTD              1, 2
+        'DRIVING LICENCE'   OCR                2
+        'CHECK LEAF'        OCR                1
+        'GST NUMBER'        OCR                1
+        'MASKED AADHAAR'    CROP               2
+        'SCAN IMAGE H'      CROP               2
+        'SCAN IMAGE V'      CROP               2
+         Note: In case of MRTD, DocumentSide = 2 is only applicable for Indian passports with address on the back page.
 
   ```
 - Create callback methods
