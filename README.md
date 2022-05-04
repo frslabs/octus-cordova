@@ -38,7 +38,7 @@ password <YOUR_PASSOWRD>
         platform :ios, '13.0'  //If changes are needed to platform ios version, you can change it here
         use_frameworks!
         target '<Your Target Name>' do
-            pod 'Octus', '~> 1.5.2' //Add the version if it is missed in podfile
+            pod 'Octus', '~> 1.6.0' //Add the version if it is missed in podfile
             pod 'TesseractOCRiOS'
         end`
     
