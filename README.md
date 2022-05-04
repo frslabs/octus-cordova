@@ -145,7 +145,7 @@ Octus SDK uses advanced deep learning technologies for accurate and fast ID scan
 #### Step 1 : Adding plugin and dependencies to the app
 
 - Extract the plugin ZIP file. Plugin ZIP file is provided by FRSLABS.
-- Add the plugin to your app `cordova plugin add /path/to/octus/plugin`
+- Add the plugin to your app `cordova plugin add /path/to/octus/plugin`. `NOTE: Replace /path/to/octus/plugin with the path where you extracted the plugin zip file`
 - Add the swift support to cordova app :  `cordova plugin add cordova-plugin-add-swift-support --save`
 - Add camera permissions to your app to capture picture
     `cordova plugin add cordova-plugin-ios-camera-permissions --variable CAMERA_USAGE_DESCRIPTION="To capture document"`
