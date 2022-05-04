@@ -284,7 +284,6 @@ Example repsonse of passport
           "issuedBy" : "IND",
           "dob" : "dd/mm/yyyy",
           "facePath" : "file:///var/mobile/Containers/Data/Application/D65000DF-70D4-438C-826A-1E77747C9885/Documents/OCTUS_FILE_FACE.png",
-          "croppedImagePath": "file:///var/mobile/Containers/Data/Application/D65000DF-70D4-438C-826A-1E77747C9885/Documents/OCTUS_FILE_CROP.png",
           "code" : "mrtd",
           "name1" : "NAME 1",
           "allCheckDigitsValid" : "true",
