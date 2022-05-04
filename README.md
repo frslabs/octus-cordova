@@ -1,5 +1,5 @@
 # Octus SDK Cordova Plugin
-![plugin version](https://img.shields.io/badge/plugin_version-v1.0.3-blue)
+![plugin version](https://img.shields.io/badge/plugin_version-v1.0.4-blue)
 
 Octus SDK uses advanced deep learning technologies for accurate and fast ID scanning and OCR.
 
