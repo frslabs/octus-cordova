@@ -1,19 +1,156 @@
-## Octus - Cordova Plugin
+# Octus SDK Cordova Plugin
+![plugin version](https://img.shields.io/badge/plugin_version-v1.0.3-blue)
 
 Octus SDK uses advanced deep learning technologies for accurate and fast ID scanning and OCR.
 
-#### 1. Adding plugin to the app
+# Table Of Content
 
-- Extract the plugin ZIP file `octus.zip`
-- Update the maven credentials in `/path/to/octus/src/android/OCTUS.gradle` file
+- [Integration steps for Android](#integration-steps-for-android)
+- [Integration steps for IOS](#integration-steps-for-ios)
+- [Help](#help)
+
+## Integration steps for Android
+
+#### Step 1 : Adding plugin to the app
+
+- Extract the plugin ZIP file. Plugin ZIP file is provided by FRSLABS.
+- Update the maven credentials in `/path/to/octus/plugin/src/android/OCTUS.gradle` file. Maven credentials is provided by FRSLABS. `NOTE: Replace /path/to/octus/plugin with the path where you extracted the plugin zip file`
 - Add the plugin to your app
-    `cordova plugin add /path/to/octus`
-#### For IOS 
+    `cordova plugin add /path/to/octus/plugin`
+    
+#### Step 2 : Integrate Octus SDK
+
+- Code to initialise octus sdk with required input parameters
+
+```Javascript
+
+  // Handle the success result here
+  var successCallBack = function success(result) {
+      console.info(result);
+  }
+  
+  // Handle the failure result here
+  var failureCallBack = function error(result) {
+      console.info(result);
+  }
+  
+  var scanSDKParams = {
+   "licence_key" : "USE_YOUR_LICENCE_KEY",
+   "language" : 1,//ENGLISH -1
+   "show_instruction_flag" : true, // YES or NO
+   "orientation_flat" : false, // YES or NO
+   "data_points" : false, // YES or NO
+   "set_alert_type" : 1, // YES or NO
+   "set_scan_mode" : 1, // YES or NO
+   "id_country" : "INDIA",
+   "aadhar_masked" : true,// If aadhar masked required true otherwise false
+   "id_type" : "E_MANDATE_CAT1", //Document type ADR,PAN,VID,NID,PPT,DRV etc
+   "id_sub_type" : 1,//OCR-1,QR_CODE-2,MRZ-3,PDF417-4.
+   "document_sides" : "FRONT_BACK"// Document sides for PAN-FRONT ,ADR-FRONT_BACK  If two sides FRONT_BACK one side FRONT
+  }
+  
+  // This line starts the SDK
+  OCTUS.invokeOctusSDK(scanSDKParams, successCallBack, failureCallBack);
+```
+  
+- Sample Android success response
+
+
+```Javascript
+
+  {
+     "GSTN":"",
+     "aadhaarMaskStatus":"N,N",
+     "aadhaarNumberValidation":"",
+     "address1":"",
+     "address2":"",
+     "address3":"",
+     "address4":"",
+     "backIdScanStatus":"Fail",
+     "bankAccountNumber":"",
+     "bankIfsCode":"",
+     "barcodeValue":"",
+     "chequeAccountId":"",
+     "chequeNumber":"",
+     "city":"",
+     "code":"OCR",
+     "code1":"",
+     "code2":"",
+     "confidenceIndexB":"",
+     "confidenceIndexF":"",
+     "country":"",
+     "dataPointAll":"false",
+     "dateOfBirth":"",
+     "documentCountry":"IN",
+     "documentNumber1":"",
+     "documentNumber2":"",
+     "documentSide":"FRONT_BACK",
+     "documentSubType":"OCR",
+     "documentType":"E_MANDATE_CAT1",
+     "emailHash":"",
+     "errorCode":"",
+     "expiryDate":"",
+     "face":"",
+     "frameLog":"",
+     "frontIdScanStatus":"Fail",
+     "gender":"",
+     "issueDate":"",
+     "issuingAuthority":"",
+     "issuingCountry":"",
+     "licenceType":"",
+     "micrCode":"",
+     "mobileHash":"",
+     "mobileNumber":"",
+     "mrzChecksumValidityStatus":"",
+     "name1":"",
+     "name2":"",
+     "parent1":"",
+     "parent2":"",
+     "photo1":"/data/user/0/com.frslabs.octuscordova.sampleapp/files/octus/Image-7216.jpg",
+     "photo2":"/data/user/0/com.frslabs.octuscordova.sampleapp/files/octus/Image-7978.jpg",
+     "postCode":"",
+     "signatureValidation":"",
+     "specialCode1":"",
+     "specialCode2":"",
+     "spouse":"",
+     "state":"",
+     "yearOfBirth":""
+  }
+
+```
+
+- Sample Android failure response
+
+```Javascript
+  {
+      "error": "400"
+  }
+
+/*  801	Scan timed out
+    802	Invalid ID parameters passed
+    803	Camera permission denied
+    804	Scan was interrupted
+    805	Octus SDK License got expired
+    806	Octus SDK License was invalid
+    807	Invalid camera resolution
+    811	QR not detected
+    812	QR parsing failed
+    108	Internet Unavailable
+    401	Api Limit Exceeded
+    429	Too many request   */
+  ```
+    
+## Integration steps for IOS
+
+#### Step 1 : Adding plugin and dependencies to the app
+
+- Extract the plugin ZIP file. Plugin ZIP file is provided by FRSLABS.
+- Add the plugin to your app `cordova plugin add /path/to/octus/plugin`
 - Add the swift support to cordova app :  `cordova plugin add cordova-plugin-add-swift-support --save`
 - Add camera permissions to your app to capture picture
     `cordova plugin add cordova-plugin-ios-camera-permissions --variable CAMERA_USAGE_DESCRIPTION="To capture document"`
     
-###### Save/Edit Netrc settings to install custom pod
+#### Step 2 : Save/Edit Netrc settings to install custom pod
 
 You will need a valid netrc credentials to install octus from maven, which can be obtained by contacting `support@frslabs.com`. 
 
@@ -44,38 +181,34 @@ password <YOUR_PASSOWRD>
     
     3: Use this command to install :  `pod install`
     4: Then build the project to add the plugin  :  `cordova build ios`
-
-
-#### 2. Android Usage
-
-- Initialize parameters
-
-  ```Javascript
-    var scanSDKParams = {
-     "licence_key" : "USE_YOUR_LICENCE_KEY",
-     "language" : 1,//ENGLISH -1
-     "show_instruction_flag" : true, // YES or NO
-     "orientation_flat" : false, // YES or NO
-     "data_points" : false, // YES or NO
-     "set_alert_type" : 1, // YES or NO
-     "set_scan_mode" : 1, // YES or NO
-     "id_country" : "INDIA",
-     "aadhar_masked" : true,// If aadhar masked required true otherwise false
-     "id_type" : "ADR", //Document type ADR,PAN,VID,NID,PPT,DRV etc
-     "id_sub_type" : 1,//OCR-1,QR_CODE-2,MRZ-3,PDF417-4.
-     "document_sides" : "FRONT_BACK"// Document sides for PAN-FRONT ,ADR-FRONT_BACK  If two sides FRONT_BACK one side FRONT
-    }
-                
- #### IOS Usage
+         
+#### Step 3 : Integrate Octus SDK
  
 - Passing the input parameters from index.js to native code
-    ```Javascript
-       var inputParamsDict = {};
-       inputParamsDict['LICENCE_KEY'] = 'your licence key';
-       inputParamsDict['documentCountry'] = 'IN';
-       inputParamsDict['documentType'] = 'PASSPORT'; //'PAN CARD', 'AADHAAR CARD', 'PASSPORT', 'CHECK LEAF', 'DRIVING LICENCE', 'GST NUMBER', 'MASKED AADHAAR', 'SCAN IMAGE H', 'SCAN IMAGE V', 'NATIONAL ID CARD', 'VISA','VOTER ID CARD'.
-       inputParamsDict['documentSubType'] = 'MRTD'; //'OCR', 'MRTD', 'BARCODE', 'CROP'
-       inputParamsDict['documentSide'] = '1'; // '1' or '2'
+
+   ```Javascript
+   
+      var inputParamsDict = {};
+      inputParamsDict['LICENCE_KEY'] = 'your licence key';
+      inputParamsDict['documentCountry'] = 'IN';
+      inputParamsDict['documentType'] = 'PASSPORT'; //'PAN CARD', 'AADHAAR CARD', 'PASSPORT', 'CHECK LEAF', 'DRIVING LICENCE', 'GST NUMBER', 'MASKED AADHAAR', 'SCAN IMAGE H', 'SCAN IMAGE V', 'NATIONAL ID CARD', 'VISA','VOTER ID CARD'.
+      inputParamsDict['documentSubType'] = 'MRTD'; //'OCR', 'MRTD', 'BARCODE', 'CROP'
+      inputParamsDict['documentSide'] = '1'; // '1' or '2'
+      
+      
+      // Handle the success result here
+      var successCallBack = function success(result){
+          console.info(result);
+      }
+      
+      // Handle the failure result here
+      var failureCallBack = function error(result){
+          console.info(result);
+      }
+  
+      // This line starts the SDK
+      OCTUS.invokeOctusSDK(inputParamsDict,successCallback,errorCallback);
+      
     ```
     Octus Parameters(DESCRIPTION) : 
      
@@ -138,102 +271,7 @@ password <YOUR_PASSOWRD>
          Note: In case of MRTD, DocumentSide = 2 is only applicable for Indian passports with address on the back page.
 
   ```
-- Create callback methods
-
-  ```Javascript
-    var successCallBack = function success(result){
-                          console.info(result);
-                    }
-  ```
-
-    ```Javascript
-   var failureCallBack = function error(result){
-                         console.info(result);
-           }
-    ```
-
-- Invoke the ANDROID SDK
-
-  ```Javascript
-   Cordova.exec(successCallBack, failureCallBack, "OCTUS", "invokeOctusSDK", [scanSDKParams]);
-  ```
-- Invoke the IOS SDK
-
-    ```Javascript
-        OCTUS.invokeOctusSDK(inputParamsDict,successCallback,errorCallback);
-     ```
-- Sample Android success response
-
-  ```Javascript
-    {
-    	code = 'OCR',
-    	  code1 = '',
-    	  code2 = '',
-    	  documentType = 'PAN',
-    	  documentNumber1 = 'PAN NUMBER',
-    	  documentNumber2 = '',
-    	  name1 = 'ABC',
-    	  name2 = 'DEF',
-    	  parent1 = '',
-    	  parent2 = '',
-    	  spouse = '',
-    	  gender = '',
-    	  address1 = '',
-    	  address2 = '',
-    	  address3 = '',
-    	  address4 = '',
-    	  city = '',
-    	  state = '',
-    	  country = 'IN',
-    	  postCode = '',
-    	  mobileNumber = '',
-    	  dateOfBirth = '08/06/1992',
-    	  yearOfBirth = '',
-    	  issueDate = '',
-    	  expiryDate = '',
-    	  issuingCountry = '',
-    	  face = '/data/user/0/com.frslabs.cordova.first/files/scanId/Image-6909.jpg',
-    	  photo1 = '/data/user/0/com.frslabs.cordova.first/files/scanId/Image-9606.jpg',
-    	  photo2 = '',
-    	  bankAccountNumber = '',
-    	  bankIfsCode = '',
-    	  GSTN = '',
-    	  specialCode1 = '',
-    	  specialCode2 = '',
-    	  errorCode = '',
-    	  licenceType = '',
-    	  issuingAuthority = '',
-    	  frontIdScanStatus = 'Success',
-    	  backIdScanStatus = '',
-    	  aadhaarNumberValidation = '',
-    	  confidenceIndexF = '',
-    	  confidenceIndexB = '',
-    	  signatureValidation = '',
-    	  mobileHash = '',
-    	  emailHash = '',
-    	  frameLog = ''
-    }
-  ```
-
-- Sample Android failure response
-
-  ```Javascript
-    {
-        "error": "400"
-      /*  801	Scan timed out
-        802	Invalid ID parameters passed
-        803	Camera permission denied
-        804	Scan was interrupted
-        805	Octus SDK License got expired
-        806	Octus SDK License was invalid
-        807	Invalid camera resolution
-        811	QR not detected
-        812	QR parsing failed
-        108	Internet Unavailable
-        401	Api Limit Exceeded
-        429	Too many request */
-    }
-    
+  
 - Sample IOS Success reponse    
 Example repsonse of passport
     ```Javascript
@@ -271,6 +309,7 @@ Example repsonse of passport
         429    Too many requests
     ```
 
-
+## Help
+For any queries/feedback , contact us at `support@frslabs.com` 
 
 
