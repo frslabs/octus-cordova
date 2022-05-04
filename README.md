@@ -191,7 +191,7 @@ password <YOUR_PASSOWRD>
       var inputParamsDict = {};
       inputParamsDict['ios_licence_key'] = 'your licence key';
       inputParamsDict['ios_documentCountry'] = 'IN';
-      inputParamsDict['ios_documentType'] = 'PASSPORT'; //'PAN CARD', 'AADHAAR CARD', 'PASSPORT', 'CHECK LEAF', 'DRIVING LICENCE', 'GST NUMBER', 'MASKED AADHAAR', 'SCAN IMAGE H', 'SCAN IMAGE V', 'NATIONAL ID CARD', 'VISA','VOTER ID CARD'.
+      inputParamsDict['ios_documentType'] = 'PASSPORT'; //'PAN CARD', 'AADHAAR CARD', 'PASSPORT', 'CHECK LEAF', 'DRIVING LICENCE', 'GST NUMBER', 'MASKED AADHAAR', 'SCAN IMAGE H', 'SCAN IMAGE V', 'NATIONAL ID CARD', 'VISA','VOTER ID CARD','E-MANDATE'.
       inputParamsDict['ios_documentSubType'] = 'MRTD'; //'OCR', 'MRTD', 'BARCODE', 'CROP'
       inputParamsDict['ios_documentSide'] = '1'; // '1' or '2'
       
@@ -237,6 +237,7 @@ password <YOUR_PASSOWRD>
         'MASKED AADHAAR'
         'SCAN IMAGE H'
         'SCAN IMAGE V'
+        'E-MANDATE'
         
      4:      `inputParamsDict['ios_documentSubType'] = 'MRTD';`
 
@@ -268,6 +269,7 @@ password <YOUR_PASSOWRD>
         'MASKED AADHAAR'    CROP               2
         'SCAN IMAGE H'      CROP               2
         'SCAN IMAGE V'      CROP               2
+        'E-MANDATE'.        OCR                1
          Note: In case of MRTD, DocumentSide = 2 is only applicable for Indian passports with address on the back page.
 
   ```
